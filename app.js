@@ -12,6 +12,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 
+app.get('/', (req, res) => {
+    res.send(`
+        <h1>Book Collection</h1>
+        <ul>
+            <li>Usa la extensión <strong>/users:</strong> para acceder al json de usuarios</li>
+            <li>Usa la extension <strong>/books:</strong> para acceder al json de libros</li>
+        </ul>
+        `)
+})
+
 app.get('/users', async (req, res) => {
     const urlUsers = 'https://api-books-ac3j.onrender.com/users';
 
